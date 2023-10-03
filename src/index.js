@@ -58,8 +58,8 @@ function Snacks() {
       <img
         src="menu/garlic_bread.jpeg"
         alt="Garlic Bread"
-        // width={200}
-        // height={200}
+        width={200}
+        height={200}
       />
       <h3>Garlic Bread</h3>
       <p>Bread with garlic and butter</p>
