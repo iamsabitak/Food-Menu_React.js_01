@@ -99,30 +99,33 @@ const Header = () => {
 };
 function Snacks(props) {
   return (
-    <div className="snacks">
-      <img src={props.photoName} alt={props.name} />
+    <li className="snacks">
+      <img src={props.snacksDataObj.photoName} alt={props.snacksDataObj.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{`${props.price + 3}$`}</span>
+        <h3>{props.snacksDataObj.name}</h3>
+        <p>{props.snacksDataObj.ingredients}</p>
+        <span>{`${props.snacksDataObj.price + 3}$`}</span>
       </div>
-    </div>
+    </li>
   );
 }
 const Menu = () => {
   return (
     <div className="menu">
       <h2>Our Menu</h2>
-      <div>
+      <ul className="snacks">
         {snacksMenuData.map((snacks) => (
           <Snacks
-            name={snacks.name}
-            ingredients={snacks.ingredients}
-            price={snacks.price}
-            photoName={snacks.photoName}
+            snacksDataObj={snacks}
+            key={snacks.name}
+            // name={snacks.name}
+            // ingredients={snacks.ingredients}
+            // price={snacks.price}
+            // photoName={snacks.photoName}
+            
           />
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

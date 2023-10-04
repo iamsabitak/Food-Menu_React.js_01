@@ -108,7 +108,7 @@ body {
 }
 
 .snacks {
-  display: flex;
+  /* display: flex; */
   gap: 3.2rem;
 }
 
