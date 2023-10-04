@@ -122,7 +122,6 @@ const Menu = () => {
             // ingredients={snacks.ingredients}
             // price={snacks.price}
             // photoName={snacks.photoName}
-            
           />
         ))}
       </ul>
