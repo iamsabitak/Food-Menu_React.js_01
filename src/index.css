@@ -55,12 +55,12 @@ body {
 .header h1::before,
 .header h1::after {
   display: block;
-  content: "";
+  content:"";
   height: 3px;
   width: 4rem;
   background-color: #edc84b;
   position: absolute;
-  top: calc(50% - 1px);
+  top: calc(80% - 1px);
 }
 
 .header h1::before {
