@@ -1,4 +1,4 @@
-const menu =[
+const snacksMenuData =[
     {
        name: "Sushi Rolls",
    ingredients: "Rice, seaweed, various fillings (e.g., fish, vegetables), and condiments like soy sauce and wasabi",

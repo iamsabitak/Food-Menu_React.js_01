@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-const menu = [
+const snacksMenuData = [
   {
     name: "Sushi Rolls",
     ingredients:
       "Rice, seaweed, various fillings (e.g., fish, vegetables), and condiments like soy sauce and wasabi",
     price: 16,
-    photoName: "menu/sushi_rolls",
+    photoName: "menu/sushi_rolls.jpeg",
     soldOut: false,
   },
   {
@@ -61,7 +61,7 @@ const menu = [
     ingredients:
       "Bell peppers stuffed with a mixture of rice, ground meat, and vegetables",
     price: 14,
-    photoName: "menu/stuffed_bell_peppers.jpeg",
+    photoName: "menu/suffed_bell_peppers.jpeg",
     soldOut: false,
   },
   {
@@ -100,25 +100,29 @@ const Header = () => {
 function Snacks(props) {
   return (
     <div className="snacks">
-      <img src= {props.photoName} alt={props.name} />
+      <img src={props.photoName} alt={props.name} />
       <div>
-      <h3>{props.name}</h3>
-      <p>{props.ingredients}</p>
-      <span>{props.price + 3}$</span>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{`${props.price + 3}$`}</span>
       </div>
-      </div>
+    </div>
   );
 }
 const Menu = () => {
   return (
     <div className="menu">
       <h2>Our Menu</h2>
-      <Snacks
-        name="Garlic Bread"
-        photoName="menu/garlic_bread.jpeg"
-        ingredients="Bread with garlic and butter"
-        price={10}
-      />
+      <div>
+        {snacksMenuData.map((snacks) => (
+          <Snacks
+            name={snacks.name}
+            ingredients={snacks.ingredients}
+            price={snacks.price}
+            photoName={snacks.photoName}
+          />
+        ))}
+      </div>
     </div>
   );
 };
