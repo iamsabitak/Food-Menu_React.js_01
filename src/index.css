@@ -31,7 +31,7 @@ body {
   gap: 4.8rem;
 }
 
-/* *************** */
+
 
 .header {
   align-self: stretch;
@@ -55,7 +55,7 @@ body {
 .header h1::before,
 .header h1::after {
   display: block;
-  content:"";
+  content: "";
   height: 3px;
   width: 4rem;
   background-color: #edc84b;
