@@ -89,8 +89,9 @@ const Menu = () => {
   return (
     <div className="menu">
       <h2>Our Menu</h2>
-     <p>Authentic Italian cuisine. 10 creative dishes to choose from .All from our stone oven. all organic, all delicious.</p>
       {numPizza > 0 ? (
+        <>
+          <p>Authentic Italian cuisine. 10 creative dishes to choose from .All from our stone oven. all organic, all delicious.</p>
         <ul className="snacks">
           {snacksData.map((snacks) => (
             <Snacks
@@ -103,22 +104,23 @@ const Menu = () => {
             />
           ))}
         </ul>
+        </>
       ) : (
-        <p>Wr are still working on our menu please come back later :)</p>
+        <p>We are still working on our menu please come back later :)</p>
       )}
     </div>
   );
 };
 function Snacks({ snacksDataObj }) {
   console.log(snacksDataObj);
-  if (snacksDataObj.soldOut) return null;
+  // if (snacksDataObj.soldOut) return null;
   return (
-    <li className="snacks">
+    <li className={`snacks ${snacksDataObj.soldOut ? ' sold-out' : ""}`}>
       <img src={snacksDataObj.photoName} alt={snacksDataObj.name} />
       <div>
         <h3>{snacksDataObj.name}</h3>
         <p>{snacksDataObj.ingredients}</p>
-        <span>{`${snacksDataObj.price + 3}$`}</span>
+        <span>{`${snacksDataObj.soldOut ? "SOLD OUT " : snacksDataObj.price + 3 }$`}</span>
       </div>
     </li>
   );
