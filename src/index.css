@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: "Roboto Mono", sans-serif;
-  color: #252525;
+  color: white;
   font-weight: 400;
   background-color: #3788f3;
   border-bottom: 1.6rem solid #14e7d1;
@@ -175,6 +175,7 @@ body {
   padding: 1.4rem 3.2rem;
   cursor: pointer;
   transition: all 0.2s;
+  border-radius: 10px;
 }
 
 .btn:hover {

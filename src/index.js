@@ -47,7 +47,7 @@ const snacksMenuData = [
     ingredients: "Corn tortilla chips with melted cheese, jalapeños, and salsa",
     price: 10,
     photoName: "menu/nachos.jpeg",
-    soldOut: false,
+    soldOut: true,
   },
   {
     name: "Hummus and Pita Bread",
@@ -80,6 +80,49 @@ const snacksMenuData = [
   },
 ];
 
+
+const Menu = () => {
+  const snacksData = snacksMenuData;
+  // const snacksData = [];
+  const numPizza = snacksData.length;
+
+  return (
+    <div className="menu">
+      <h2>Our Menu</h2>
+     <p>Authentic Italian cuisine. 10 creative dishes to choose from .All from our stone oven. all organic, all delicious.</p>
+      {numPizza > 0 ? (
+        <ul className="snacks">
+          {snacksData.map((snacks) => (
+            <Snacks
+              snacksDataObj={snacks}
+              key={snacks.name}
+              // name={snacks.name}
+              // ingredients={snacks.ingredients}
+              // price={snacks.price}
+              // photoName={snacks.photoName}
+            />
+          ))}
+        </ul>
+      ) : (
+        <p>Wr are still working on our menu please come back later :)</p>
+      )}
+    </div>
+  );
+};
+function Snacks({ snacksDataObj }) {
+  console.log(snacksDataObj);
+  if (snacksDataObj.soldOut) return null;
+  return (
+    <li className="snacks">
+      <img src={snacksDataObj.photoName} alt={snacksDataObj.name} />
+      <div>
+        <h3>{snacksDataObj.name}</h3>
+        <p>{snacksDataObj.ingredients}</p>
+        <span>{`${snacksDataObj.price + 3}$`}</span>
+      </div>
+    </li>
+  );
+}
 function App() {
   return (
     <div className="container">
@@ -97,37 +140,7 @@ const Header = () => {
     </div>
   );
 };
-function Snacks(props) {
-  return (
-    <li className="snacks">
-      <img src={props.snacksDataObj.photoName} alt={props.snacksDataObj.name} />
-      <div>
-        <h3>{props.snacksDataObj.name}</h3>
-        <p>{props.snacksDataObj.ingredients}</p>
-        <span>{`${props.snacksDataObj.price + 3}$`}</span>
-      </div>
-    </li>
-  );
-}
-const Menu = () => {
-  return (
-    <div className="menu">
-      <h2>Our Menu</h2>
-      <ul className="snacks">
-        {snacksMenuData.map((snacks) => (
-          <Snacks
-            snacksDataObj={snacks}
-            key={snacks.name}
-            // name={snacks.name}
-            // ingredients={snacks.ingredients}
-            // price={snacks.price}
-            // photoName={snacks.photoName}
-          />
-        ))}
-      </ul>
-    </div>
-  );
-};
+
 const Footer = () => {
   const hour = new Date().getHours();
   console.log(hour);
@@ -144,12 +157,34 @@ const Footer = () => {
   return (
     <div>
       <footer className="footer">
-        {new Date().toLocaleTimeString()} We are currently open.
+        {/* {isOpen===true?"We are currently open.":"Sorry Closed."}  */}
+        {isOpen ? (
+          <Order closeHour={closeHour} />
+        ) : (
+          <p>
+            We are Happy to welcome you between {openHour}:00 and {closeHour}:00.
+          </p>
+        )}
       </footer>
     </div>
   );
-  //   return React.createElement('footer', null , `${new Date().toLocaleTimeString()} We're currently open.`) // instead of this
 };
+const Order = ({openHour,closeHour}) => {
+  return (
+    <>
+      <div className="order">
+        <p>
+          We're open from {openHour}:00 to {closeHour}:00. Please come visit us or order
+          online.
+        </p>
+        <button className="btn">
+          Order
+        </button>
+      </div>
+    </>
+  );
+};
+//   return React.createElement('footer', null , `${new Date().toLocaleTimeString()} We're currently open.`) // instead of this
 
 const container = ReactDOM.createRoot(document.getElementById("root"));
 container.render(
