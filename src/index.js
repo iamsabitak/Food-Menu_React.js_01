@@ -151,8 +151,8 @@ const Footer = () => {
   // if(hour >= openHour &&  hour <= closeHour ){
   //   alert("Welcome! Open ")
   // } else{
-  //   alert("Sorry,Closed")
-  // }
+  //   alert("Sorry,Closed") }
+   
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
 
